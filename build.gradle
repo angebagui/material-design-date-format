@@ -2,6 +2,7 @@ group 'io.github.angebagui'
 version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
+apply plugin: 'maven'
 
 sourceCompatibility = 1.5
 
@@ -14,4 +15,11 @@ dependencies {
     compile "joda-time:joda-time:2.9.2"
     compile 'org.javatuples:javatuples:1.2'
 
+}
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: "file://localhost/tmp/myRepo/")
+        }
+    }
 }
